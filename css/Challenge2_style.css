@@ -1,0 +1,193 @@
+:root{
+  --Colour_BodyBackground:rgba(222, 219, 200, 0.882);
+
+  --Colour_HeaderBackground:red;
+  --Colour_Header: white;
+
+  --Colour_NavBackground: #514f78;
+  --Colour_NavColour: white;
+  --Colour_NavHoverBackground:#13293d; 
+
+  --Colour_WebsiteFlexboxBackground:rgba(222, 219, 200, 0.882);
+  --Colour_WebsiteNameHoverBackground:#13293d; 
+
+  --Colour_Footer:#514f78;
+
+  --Border-radius: 50px;
+
+}
+
+
+/*  BASIC FORMATTING */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.5;
+  
+  /* set a default background colour for the entire page */
+  background-color:var(--Colour_BodyBackground);
+
+  /* set the entire page to a flex in column mode */
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+
+/* MAIN LAYOUT */
+header {
+  padding: 10px;
+  text-align: center;
+  background: var(--Colour_HeaderBackground);
+  color: var(--Colour_Header);
+}
+
+nav {
+  display: flex;
+  background-color: var(--Colour_NavBackground);
+  justify-content: right;
+}
+
+nav a {
+  color: var(--Colour_NavColour);
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+section {
+
+  padding: 14px 20px;
+
+}
+
+footer {
+  margin: 1.5rem;
+  text-align: center;
+  font-size: 10px;
+  color: var(--Colour_Footer);
+}
+
+
+/* POSITIONING */
+
+/* display text within top-left of image within hero banner */
+.hero-banner {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.hero-banner-top-left {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+/* used for displaying the "about" picture alongside the "about" description */
+.about-container {
+  display: grid;
+  align-items: center; 
+  grid-template-columns: 1fr 3fr 0fr;
+  column-gap: 5px;
+ }
+ 
+
+
+/* WEBSITE CARDS */
+.websites-flex-container {
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  background-color: var(--Colour_WebsiteFlexboxBackground); 
+  justify-content: center;
+
+}
+
+.card {
+  background-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: var(--Border-radius);
+  padding: 20px;
+  flex: 0 0 400px;
+  box-shadow: 10px 10px 5px #aaaaaa;
+  margin: 20px;
+  text-align: center;
+}
+
+.card > header {
+  border-radius: var(--Border-radius) var(--Border-radius) 0px 0px;
+  padding: 20px;
+}
+
+.card > p {
+  text-align: center;
+}
+
+.card > img {
+  width: 100%;
+  
+}
+
+
+/* EVENT HANDLING */
+nav a:hover {
+  background-color: var(--Colour_NavHoverBackground);
+}
+
+.websites-flex-container header:hover{
+  background-color: var(--Colour_WebsiteNameHoverBackground);
+}
+
+
+/* SCREEN SIZING */
+/* MEDIA */
+
+/* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
+@media screen and (min-width: 768px) {
+  /* on tablets, set columns to only be 50% of the width and not grow */
+  .websites-flex-container {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  /* select the first child to grow to full width */
+  .websites-flex-container:first-child {
+    flex-grow: 1;
+  }
+}
+
+/* media query for larger screens */
+@media screen and (min-width: 992px) {
+  
+  .websites-flex-container {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
